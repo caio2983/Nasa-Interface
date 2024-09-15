@@ -4,7 +4,7 @@ const axios = require('axios');
 
 async function route_apod(fastify, options) {
   const apiKey_apod = process.env.API_KEY_APOD;
-  fastify.get('/api', async (request, reply) => {
+  fastify.get('/apod', async (request, reply) => {
     try {
  
       const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey_apod}`);

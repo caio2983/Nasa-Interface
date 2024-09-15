@@ -14,11 +14,8 @@
     flex-direction: column;
 }
 
-#date-picker-container {
-    border: 2px solid black;
-    border-bottom: 0;
-    height: 20%
-
+mat-form-field {
+    padding: 8px;
 }
 
 #explanation-container {

@@ -11,11 +11,11 @@ import { Apod } from "../app/models/nasa-models.model";
 
 export class Nasa {
 
-private api = environment.api;
+private apod = environment.apod;
     
 constructor(private httpClient: HttpClient){}
 
 getAPOD(): Observable<any> {
-    return this.httpClient.get<Apod>(this.api); // Retorna um Observable com os dados
+    return this.httpClient.get<Apod>(this.apod); // Retorna um Observable com os dados
   }
 }

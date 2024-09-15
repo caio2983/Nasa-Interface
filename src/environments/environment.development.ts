@@ -1,3 +1,3 @@
 export const environment = {
-   api:'http://127.0.0.1:3000/api'
+   apod:'http://127.0.0.1:3000/apod'
 };
