@@ -2,7 +2,7 @@
 
 <div id="hero">
     <section id="image-container">
-        <img [src]="" />
+        <img [src]="image_src" />
     </section>
     <section id="date-explanation">
         <mat-form-field>
@@ -13,10 +13,11 @@
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <div id="explanation-container">
-            <h1></h1>
-            <p></p>
-            <p></p>
+        <div id="images-icons-container">
+            <div class="image-icon" *ngFor="let image_link of image_links"
+                [ngStyle]="{'background-image': 'url(' + image_link + ')'}" (click)="clickIcon(image_link)">
+
+            </div>
         </div>
     </section>
 </div>

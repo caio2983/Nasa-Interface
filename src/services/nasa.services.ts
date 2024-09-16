@@ -25,9 +25,12 @@ getAPOD(date: any): Observable<any> {
   return this.httpClient.get<Apod>(this.apod, { params });
 }
 
-getEpic(date: any): Observable<any> {
+getEpic(date: any,date_barra: any): Observable<any> {
 
-  const params = new HttpParams().set('date', date);
+  let params = new HttpParams();
+params = params.set('date', date);
+params = params.set('date_barra', date_barra);
+
 
   return this.httpClient.get<Epic[]>(this.epic, { params });
 }
