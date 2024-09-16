@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 import { environment } from "../environments/environment";
 import { Apod } from "../app/models/nasa-models.model";
+import { HttpParams,HttpResponse } from "@angular/common/http";
 
 
 @Injectable({
@@ -15,7 +16,12 @@ private apod = environment.apod;
     
 constructor(private httpClient: HttpClient){}
 
-getAPOD(): Observable<any> {
-    return this.httpClient.get<Apod>(this.apod); // Retorna um Observable com os dados
-  }
+getAPOD(date: any): Observable<any> {
+
+  const params = new HttpParams().set('date', date);
+
+  
+
+  return this.httpClient.get<Apod>(this.apod, { params });
+}
 }

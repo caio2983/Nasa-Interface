@@ -13,8 +13,6 @@ export class AppComponent {
   title = 'nasa-interface';
 
   constructor(private NasaService: Nasa){
-    this.NasaService.getAPOD().subscribe((response)=>{
-     console.log(response);
-    })
+
   }
 }

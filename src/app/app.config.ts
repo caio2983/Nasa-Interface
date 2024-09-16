@@ -7,7 +7,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DatePipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideHttpClient(),RouterModule, provideAnimationsAsync(),provideNativeDateAdapter(),BrowserModule,BrowserAnimationsModule]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideHttpClient(),RouterModule, provideAnimationsAsync(),provideNativeDateAdapter(),DatePipe]
 };
