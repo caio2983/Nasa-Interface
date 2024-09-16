@@ -2,11 +2,11 @@ import { Component,ChangeDetectionStrategy } from '@angular/core';
 import { DefaultLayoutComponent } from '../../default-layout/default-layout.component';
 import { Nasa } from '../../../../services/nasa.services';
 import { DatePipe } from '@angular/common';
-import {MatDatepickerInputEvent, MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDateRangePicker,MatDateRangeInput, MatDatepickerModule} from '@angular/material/datepicker';
 import { MatDatepickerInput } from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {NativeDateAdapter, provideNativeDateAdapter} from '@angular/material/core';
+import { provideNativeDateAdapter} from '@angular/material/core';
 
 
 
@@ -19,6 +19,8 @@ import {NativeDateAdapter, provideNativeDateAdapter} from '@angular/material/cor
   styleUrl: './apod.component.scss'
 })
 export class ApodComponent {
+  minDate: Date = new Date(1995, 6, 16);
+  maxDate : Date = new Date();
 
   hdurl!: string;
   explanation! : string;

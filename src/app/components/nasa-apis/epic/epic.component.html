@@ -2,22 +2,21 @@
 
 <div id="hero">
     <section id="image-container">
-        <img [src]="hdurl" />
+        <img [src]="" />
     </section>
     <section id="date-explanation">
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate"
-                (dateChange)="valueChanged($event)">
+            <input matInput [matDatepicker]="picker" (dateChange)="valueChanged($event)">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <div id="explanation-container">
-            <h1>{{title}}</h1>
-            <p>{{copyright}}</p>
-            <p>{{explanation}}</p>
+            <h1></h1>
+            <p></p>
+            <p></p>
         </div>
     </section>
 </div>
