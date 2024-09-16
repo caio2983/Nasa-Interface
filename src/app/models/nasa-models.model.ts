@@ -46,3 +46,37 @@ export interface Epic {
     attitude_quaternions: Quaternions;
   }
   
+  export interface NasaImageCollection {
+    collection: Collection;
+  }
+  
+  export interface Collection {
+    version: string;
+    href: string;
+    items: Item[];
+  }
+  
+  export interface Item {
+    href: string;
+    data: Data[];
+    links: Link[];
+  }
+  
+  export interface Data {
+    center: string;
+    title: string;
+    nasa_id: string;
+    date_created: string;
+    keywords: string[];
+    media_type: string;
+    description_508: string;
+    secondary_creator: string;
+    description: string;
+  }
+  
+  export interface Link {
+    href: string;
+    rel: string;
+    render: string;
+  }
+  

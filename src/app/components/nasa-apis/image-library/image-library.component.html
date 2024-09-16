@@ -1,2 +1,23 @@
 <app-default-layout></app-default-layout>
-<p>image-library works!</p>
+
+
+<div id="hero">
+    <section id="image-container">
+        <img />
+    </section>
+    <section id="date-explanation">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Image search</mat-label>
+                <input matInput placeholder="Type tags" [(ngModel)]="tags" name="tags" (change)="valuechange($event)">
+            </mat-form-field>
+        </form>
+
+
+        <div id="images-icons-container">
+            <div class="image-icon">
+
+            </div>
+        </div>
+    </section>
+</div>

@@ -21,7 +21,7 @@ export class EpicComponent {
   date! : string | null;
   date_barra! : string | null;
   images_data! : Epic[];
-  image_links! : string[];
+  image_links! : string[]; 
   image_src! : string;
 
 

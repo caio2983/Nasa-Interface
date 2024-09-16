@@ -1,4 +1,5 @@
 export const environment = {
     apod:'',
-    epic:''
+    epic:'',
+    library: ''
 };

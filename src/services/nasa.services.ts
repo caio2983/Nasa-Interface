@@ -5,6 +5,7 @@ import { environment } from "../environments/environment";
 import { Apod } from "../app/models/nasa-models.model";
 import { Epic } from "../app/models/nasa-models.model";
 import { HttpParams,HttpResponse } from "@angular/common/http";
+import { NasaImageCollection } from "../app/models/nasa-models.model";
 
 
 @Injectable({
@@ -15,6 +16,7 @@ export class Nasa {
 
 private apod = environment.apod;
 private epic = environment.epic;
+private library = environment.library;
     
 constructor(private httpClient: HttpClient){}
 
@@ -33,5 +35,13 @@ params = params.set('date_barra', date_barra);
 
 
   return this.httpClient.get<Epic[]>(this.epic, { params });
+}
+
+getNasaLibrary(tags: string): Observable<any> {
+  let params = new HttpParams();
+  params = params.set('tags', tags);
+
+  return this.httpClient.get<NasaImageCollection>(this.library, { params });
+ 
 }
 }
