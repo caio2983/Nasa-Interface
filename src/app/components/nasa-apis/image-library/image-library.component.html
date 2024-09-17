@@ -15,7 +15,10 @@
 
 
         <div id="images-icons-container">
-            <div class="image-icon">
+            <div class="image-icon" *ngFor="let item of items"
+                [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item)">
+
+
 
             </div>
         </div>

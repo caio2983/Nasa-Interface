@@ -5,6 +5,7 @@ import {  MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { Nasa } from '../../../../services/nasa.services';
+import { Item } from '../../../models/nasa-models.model';
 
 @Component({
   selector: 'app-image-library',
@@ -15,6 +16,7 @@ import { Nasa } from '../../../../services/nasa.services';
 })
 export class ImageLibraryComponent {
   tags : string = "galaxy";
+  items! : Item[];
 
   constructor(private NasaService: Nasa) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
@@ -28,7 +30,16 @@ export class ImageLibraryComponent {
   valuechange(event:any) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
       console.log(response);
+      this.items = response.collection.items;
+      console.log("ITEMSSSSSSS",this.items)
+
+    
+      
      })
      }
+
+   clickIcon(event: any) {
+
+   }
 
 }

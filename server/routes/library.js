@@ -8,11 +8,14 @@ async function route_library(fastify, options) {
  
   fastify.get('/library/:query', async (request, reply) => {
     try {
-      const query = request.query.tags; 
+      const query = request.query.q; 
       console.log(reply.body);
       
    
       const response = await axios.get(`https://images-api.nasa.gov/search?q=${query}`);
+      console.log("RESPONSE",response.data)
+      
+      // const responseImagesJson = await axios.get(`${response}.`)
       
       return response.data;
     } catch (error) {
@@ -21,6 +24,7 @@ async function route_library(fastify, options) {
     }
   });
 }
+
 
 
 module.exports = route_library;

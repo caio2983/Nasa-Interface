@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpResponseBase } from '@angular/common/http'; 
 import { Observable } from 'rxjs'; 
 import { environment } from "../environments/environment";
 import { Apod } from "../app/models/nasa-models.model";
@@ -40,8 +40,10 @@ params = params.set('date_barra', date_barra);
 getNasaLibrary(query: string): Observable<any> {
   let params = new HttpParams();
   params = params.set('q', query);
-
-  return this.httpClient.get<NasaImageCollection>(this.library, { params });
- 
+  
+  return this.httpClient.get<NasaImageCollection>(this.library, { params })
+          
 }
+
+
 }
