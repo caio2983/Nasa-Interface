@@ -3,7 +3,7 @@ import { HttpClient, HttpResponseBase } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 import { environment } from "../environments/environment";
 import { Apod } from "../app/models/nasa-models.model";
-import { Epic } from "../app/models/nasa-models.model";
+import { Epic,Item } from "../app/models/nasa-models.model";
 import { HttpParams,HttpResponse } from "@angular/common/http";
 import { NasaImageCollection } from "../app/models/nasa-models.model";
 
@@ -43,6 +43,11 @@ getNasaLibrary(query: string): Observable<any> {
   
   return this.httpClient.get<NasaImageCollection>(this.library, { params })
           
+}
+
+getLibraryitem(href: string) {
+  
+  return this.httpClient.get<string[]>(href);
 }
 
 

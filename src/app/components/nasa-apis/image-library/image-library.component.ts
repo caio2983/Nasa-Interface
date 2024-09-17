@@ -17,6 +17,7 @@ import { Item } from '../../../models/nasa-models.model';
 export class ImageLibraryComponent {
   tags : string = "galaxy";
   items! : Item[];
+  imgSrc! : any;
 
   constructor(private NasaService: Nasa) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
@@ -38,7 +39,14 @@ export class ImageLibraryComponent {
      })
      }
 
-   clickIcon(event: any) {
+   clickIcon(href: string ) {
+ 
+    this.NasaService.getLibraryitem(href).subscribe((response)=>{
+      console.log(response);
+      this.imgSrc = response[0];
+      console.log("IMG SRC",this.imgSrc)
+
+     })
 
    }
 
