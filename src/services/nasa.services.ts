@@ -37,9 +37,9 @@ params = params.set('date_barra', date_barra);
   return this.httpClient.get<Epic[]>(this.epic, { params });
 }
 
-getNasaLibrary(tags: string): Observable<any> {
+getNasaLibrary(query: string): Observable<any> {
   let params = new HttpParams();
-  params = params.set('tags', tags);
+  params = params.set('q', query);
 
   return this.httpClient.get<NasaImageCollection>(this.library, { params });
  
