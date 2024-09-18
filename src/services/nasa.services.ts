@@ -17,9 +17,12 @@ export class Nasa {
 private apod = environment.apod;
 private epic = environment.epic;
 private library = environment.library;
+private mars = environment.mars;
     
 constructor(private httpClient: HttpClient){}
 
+
+// Astronomy picture of the day service
 getAPOD(date: any): Observable<any> {
 
   const params = new HttpParams().set('date', date);
@@ -27,9 +30,11 @@ getAPOD(date: any): Observable<any> {
   return this.httpClient.get<Apod>(this.apod, { params });
 }
 
+
+// Earth polychromatic images service
 getEpic(date: any,date_barra: any): Observable<any> {
 
-  let params = new HttpParams();
+let params = new HttpParams();
 params = params.set('date', date);
 params = params.set('date_barra', date_barra);
 
@@ -37,6 +42,8 @@ params = params.set('date_barra', date_barra);
   return this.httpClient.get<Epic[]>(this.epic, { params });
 }
 
+
+//Nasa image and videos library service
 getNasaLibrary(query: string): Observable<any> {
   let params = new HttpParams();
   params = params.set('q', query);
@@ -50,5 +57,15 @@ getLibraryitem(href: string) {
   return this.httpClient.get<string[]>(href);
 }
 
+//Mars rover photos service
 
+getMarsRover(rover_name: string,sol: number): Observable<any> {
+  let params = new HttpParams();
+  params = params.set('sol', sol);
+  params = params.set('rover_name', rover_name);
+
+  return this.httpClient.get(this.mars, { params });
 }
+}
+
+

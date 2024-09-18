@@ -1,2 +1,33 @@
 <app-default-layout></app-default-layout>
-<p>mars-rover works!</p>
+
+<div id="hero">
+    <section id="image-container">
+        <img [src]="image_src" />
+    </section>
+    <section id="date-explanation">
+
+        <mat-form-field>
+            <mat-label>Select a rover</mat-label>
+            <mat-select [(value)]="selected_rover">
+                <mat-option value="curiosity">Curiosity</mat-option>
+                <mat-option value="opportunity">Opportunity</mat-option>
+                <mat-option value="spirit">Spirit</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Select a sol</mat-label>
+            <input matInput placeholder="Integer Number" [(ngModel)]="selected_sol" name="sols"
+                (change)="valueChange($event)">
+        </mat-form-field>
+
+
+        <div id="images-icons-container">
+            <div class="image-icon" *ngFor="let response_photo of response_photos"
+                [ngStyle]="{'background-image': 'url(' + response_photo.img_src + ')'}"
+                (click)="clickIcon(response_photo.img_src)">
+
+            </div>
+        </div>
+    </section>
+</div>

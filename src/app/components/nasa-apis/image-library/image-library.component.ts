@@ -22,9 +22,6 @@ export class ImageLibraryComponent {
   constructor(private NasaService: Nasa) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
       console.log(response);
-      
- 
- 
      })
   }
 

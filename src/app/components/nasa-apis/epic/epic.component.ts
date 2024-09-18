@@ -28,9 +28,6 @@ export class EpicComponent {
   constructor(private NasaService: Nasa,private datePipe: DatePipe) {
     this.NasaService.getEpic("2024-09-13","2024/09/13").subscribe((response)=>{
       console.log(response);
-      
- 
- 
      })
  
   }
