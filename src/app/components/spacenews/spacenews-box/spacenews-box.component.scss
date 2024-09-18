@@ -1,31 +1,17 @@
-#hero {
-    display: flex;
-
-}
 section {
     width: 50%;
     margin-top: 64px;
-}
-
-#apis-home {
-    padding-inline: 64px;
 }
 
 #news-home {
 padding-inline: 128px;
 }
 
-#news-box,#apis-box {
+#news-box {
     border: 2px solid black;
     margin: 0 auto;
 }
 
-
-
-#apis-box {
-    width: 100%;
-    height: 400px;
-}
 
 #news-box {
     width: 100%;
@@ -33,4 +19,5 @@ padding-inline: 128px;
 
     
 }
+
 

@@ -1,5 +1,6 @@
 export const environment = {
     apod:'',
     epic:'',
-    library: ''
+    library: '',
+    spacenews:''
 };
