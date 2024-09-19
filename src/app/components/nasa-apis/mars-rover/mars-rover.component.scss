@@ -1,5 +1,10 @@
 #hero {
     display: flex;
+    padding-top: 56px;
+    padding-inline: 32px;
+    background-color: black;
+    height: 100%;
+
 }
 
 #image-container {
@@ -8,20 +13,19 @@
 }
 
 #date-explanation {
-    padding: 8px;
+
     width: 40%;
     display: flex;
     flex-direction: column;
 }
 
-mat-form-field {
-    padding: 16px;
-}
+
 
 #images-icons-container {
 
-        border: 2px solid black;
-        height: 80%;
+        border: 2px solid white;
+        height: 500px;
+        max-height: 500px;
         display: flex;
         gap: 16px;
         padding: 8px;

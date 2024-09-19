@@ -1,9 +1,12 @@
 #hero {
     display: flex;
-    margin-top: 56px;
+    padding-top: 56px;
     padding-inline: 32px;
+    background-color: black;
+    height: 100%;
 
 }
+
 
 #image-container {
     width: 60%;
@@ -22,9 +25,10 @@ mat-form-field {
 }
 
 #images-icons-container {
-        max-height: 80%;
-        border: 2px solid black;
-        height: 80%;
+       
+        border: 2px solid white;
+        height: 500px;
+        max-height: 500px;
         display: flex;
         gap: 16px;
         padding: 8px;
