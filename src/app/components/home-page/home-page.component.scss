@@ -1,24 +1,76 @@
 #hero {
     display: flex;
-    margin-top: 56px;
+    padding-top: 56px;
     padding-inline: 32px;
+    background-color: black;
 
 }
 
 section {
-    width: 50%;
+    width: 60%;
     margin: 32px;
     margin-top: 0;
 
 }
 
 #apis-box {
-    border: 2px solid black;
+    border: 2px solid white;
     height: 500px;
+    display: flex;
+    flex-direction: column;
+
 }
 
+.api-card {
+    height: 25%;
+    color: white;
+    position: relative;
+    opacity: 1;
+    z-index: 10;
+}
+
+.api-card span {
+    position: absolute;
+    opacity: 0.5;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#apod-card span {
+    background-image: url('https://apod.nasa.gov/apod/image/2409/LDN1082_px2048.jpg');
+   
+}
+
+#epic-card span {
+    background-image: url('https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001386/GSFC_20171208_Archive_e001386~orig.jpg');
+    background-size: 50%;
+    
+}
+
+#lib-card span {
+    background-image: url('https://images-assets.nasa.gov/image/PIA23986/PIA23986~orig.jpg');
+    background-position-y: 42% ;
+    background-size: cover;
+   
+    
+
+}
+
+
+#mars-card span {
+    background-image: url('https://images-assets.nasa.gov/image/PIA04413/PIA04413~orig.jpg');
+    background-size: cover;
+    background-position-y: 85% ;
+ 
+}
+
+
 #news-box  {
-    width: 60%;
+    width: 40%;
     
 }
 
