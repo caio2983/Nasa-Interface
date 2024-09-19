@@ -1,4 +1,4 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild,Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,7 +10,9 @@ import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } fr
   styleUrl: './spacenews-box.component.scss'
 })
 export class SpacenewsBoxComponent {
-  images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+@Input() images!: string[]
+
   paused = false;
 	unpauseOnArrow = false;
 	pauseOnIndicator = false;

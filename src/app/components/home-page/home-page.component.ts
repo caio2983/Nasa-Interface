@@ -13,14 +13,17 @@ import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } fr
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
+  carousel_images : string[] = []
 
   constructor( private SpaceNewsService : SpaceNews) {
     this.SpaceNewsService.getSpaceNews().subscribe((response)=>{
       console.log(response);
-   
- 
- 
+       for (let item of response.results){
+         this.carousel_images.push(item.image_url)
+       }
+       console.log("CAROUSEL IMAGES",this.carousel_images)
      })
+   
   }
 
 
