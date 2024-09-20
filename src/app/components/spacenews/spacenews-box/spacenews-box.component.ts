@@ -1,4 +1,4 @@
-import { Component,ViewChild,Input } from '@angular/core';
+import { Component,ViewChild,Input,OnInit,Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 
@@ -11,7 +11,8 @@ import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } fr
 })
 export class SpacenewsBoxComponent {
 
-@Input() images!: string[]
+@Input() data!: any
+
 
   paused = false;
 	unpauseOnArrow = false;
@@ -20,6 +21,15 @@ export class SpacenewsBoxComponent {
 	pauseOnFocus = true;
 
 	@ViewChild('carousel', { static: true }) carousel!: NgbCarousel;
+
+	constructor(private renderer: Renderer2){}
+
+	ngOnInit(): void {
+		const carouselIndicators = this.renderer.selectRootElement('.carousel-indicators', true);
+		
+		
+		this.renderer.setStyle(carouselIndicators, 'top', '20px');
+	  }
 
 	togglePaused() {
 		if (this.paused) {

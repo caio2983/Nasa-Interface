@@ -1,17 +1,21 @@
 <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
     (slide)="onSlide($event)">
-    @for (img of images; track img; let i = $index) {
+    @for (item of data; track data; let i = $index) {
     <ng-template ngbSlide>
 
-        <a href="https://www.google.fr/?q=Number+{{ i + 1 }}" target="_blank" rel="nofollow noopener noreferrer">
+        <a href="" target="_blank" rel="nofollow noopener noreferrer">
             <div class="picsum-img-wrapper">
-                <img [src]="img" alt="My image {{ i + 1 }} description" class="carousel_image"
+                <img [src]="item.image_url" alt="My image {{ i + 1 }} description" class="carousel_image"
                     style="width: 100%; height: 50vh" />
+                <div class="carousel-caption">
+                    <h3>{{ item.title }}</h3>
+                </div>
             </div>
         </a>
-        <div class="carousel-caption">
-            <h3>My slide {{ i + 1 }} title</h3>
-        </div>
+
+        <p>Source : {{item.news_site}}</p>
+        <p>{{item.summary}}</p>
+
     </ng-template>
     }
 </ngb-carousel>
