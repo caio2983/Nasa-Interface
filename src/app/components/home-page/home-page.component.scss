@@ -38,9 +38,13 @@ justify-content: center;
     position: relative;
     opacity: 1;
     z-index: 10;
+    margin: 8px;
+    border: 1px solid grey;
+
+   
 }
 
-.api-card span {
+.card-background {
     position: absolute;
     opacity: 0;
     transition: opacity 0.7s ease; 
@@ -52,23 +56,33 @@ justify-content: center;
     background-repeat: no-repeat;
 }
 
-.api-card:hover span {
+.api-card:hover .card-background {
     opacity: 0.3; 
+    cursor:pointer;
+}
+
+.card-text {
+    position: absolute;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+   
+
 }
 
 
-#apod-card span {
+#apod-card .card-background{
     background-image: url('https://apod.nasa.gov/apod/image/2409/LDN1082_px2048.jpg');
    
 }
 
-#epic-card span {
+#epic-card .card-background {
     background-image: url('https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001386/GSFC_20171208_Archive_e001386~orig.jpg');
     background-size: 50%;
     
 }
 
-#lib-card span {
+#lib-card .card-background {
     background-image: url('https://images-assets.nasa.gov/image/PIA23986/PIA23986~orig.jpg');
     background-position-y: 42% ;
     background-size: cover;
@@ -78,7 +92,7 @@ justify-content: center;
 }
 
 
-#mars-card span {
+#mars-card .card-background {
     background-image: url('https://images-assets.nasa.gov/image/PIA04413/PIA04413~orig.jpg');
     background-size: cover;
     background-position-y: 85% ;
