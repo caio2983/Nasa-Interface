@@ -1,5 +1,27 @@
+<ngb-carousel>
+    @for (item of data; track data; ) {
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img [src]="item.image_url" class="carousel_image" style="width: 100% ; height: 90vh;" />
+        </div>
+        <div class="carousel-caption">
+            <h3>{{ item.title }}</h3>
+            <p>{{item.summary}}</p>
+            <p>Source : {{item.news_site}}</p>
+        </div>
+
+
+    </ng-template>
+
+    }
+
+</ngb-carousel>
+
+
+<!-- <h1>Artigos astronômicos recentes</h1>
 <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
     (slide)="onSlide($event)">
+
     @for (item of data; track data; let i = $index) {
     <ng-template ngbSlide>
 
@@ -20,4 +42,4 @@
     }
 </ngb-carousel>
 
-<hr />
+<hr /> -->

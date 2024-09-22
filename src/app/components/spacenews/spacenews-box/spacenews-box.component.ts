@@ -25,10 +25,7 @@ export class SpacenewsBoxComponent {
 	constructor(private renderer: Renderer2){}
 
 	ngOnInit(): void {
-		const carouselIndicators = this.renderer.selectRootElement('.carousel-indicators', true);
-		
-		
-		this.renderer.setStyle(carouselIndicators, 'top', '20px');
+	
 	  }
 
 	togglePaused() {

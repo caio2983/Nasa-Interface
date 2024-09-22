@@ -1,28 +1,37 @@
 #hero {
     display: flex;
-    padding-top: 56px;
+    flex-direction: column;
+    padding-top: 32px;
     padding-inline: 32px;
     background-color: black;
+   
 
 }
 
 section {
-    width: 60%;
-    margin: 32px;
+    width: 100%;
     margin-top: 0;
+   
 
 }
 
 #apis-box {
-    border: 2px solid white;
-    height: 500px;
+    height: calc(100vh);
+    width: 50%;
     display: flex;
     flex-direction: column;
+    font-weight: 500;
 
 }
 
+#news-box  {
+display: flex;
+justify-content: center;
+}
+
+
 .api-card {
-    height: 25%;
+    height: 20%;
     color: white;
     position: relative;
     opacity: 1;
@@ -68,12 +77,21 @@ section {
  
 }
 
-
-#news-box  {
-    width: 40%;
+#carl-sagan {
+    height: 80vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
+app-spacenews-box {
+    width: 100%;
+    padding: 8%;
+}
 
+footer {
+    height: 250px;
+}
 
 
 

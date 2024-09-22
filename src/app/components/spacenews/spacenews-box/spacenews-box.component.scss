@@ -1,19 +1,23 @@
 ngb-carousel {
-    height: 250px;
+    width: 100%;
+}
+
+ng-template p {
+    position: absolute;
+    bottom: 0;
 }
 
 .picsum-img-wrapper img {
-    opacity: 0.4;
+    opacity: 0.3;
 
 }
 
-.carousel-caption {
-    position: absolute;
-    top: 40px;
-}
 
 
-p{
+h1 {
+    text-align: center;
+    font-size: medium;
     color: white;
+    margin-bottom: 8px
 }
 
