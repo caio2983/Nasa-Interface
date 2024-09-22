@@ -1,11 +1,11 @@
 <app-default-layout></app-default-layout>
 
 
-<div id="hero">
-    <section id="image-container">
-        <img [src]="imgSrc" />
+<div class="hero">
+    <section class="image-container">
+        <img [src]="imgSrc" class="imageresult-apis" />
     </section>
-    <section id="date-explanation">
+    <section class="input-explanation-icons">
         <form class="example-form">
             <mat-form-field class="example-full-width">
                 <mat-label>Image search</mat-label>
@@ -14,12 +14,9 @@
         </form>
 
 
-        <div id="images-icons-container">
+        <div class="explanation-icons-container icons-nowrap">
             <div class="image-icon" *ngFor="let item of items"
                 [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item.href)">
-
-
-
             </div>
         </div>
     </section>

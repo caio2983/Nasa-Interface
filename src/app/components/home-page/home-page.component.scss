@@ -17,10 +17,11 @@ section {
 
 #apis-box {
     height: calc(100vh);
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     font-weight: 500;
+    align-items: center;
 
 }
 
@@ -32,6 +33,7 @@ justify-content: center;
 
 .api-card {
     height: 20%;
+    width: 60%;
     color: white;
     position: relative;
     opacity: 1;

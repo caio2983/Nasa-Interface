@@ -18,5 +18,63 @@ html, body {
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.input-explanation-icons {
+
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.explanation-icons-container {
+ 
+        color: white;
+        border: 2px solid white;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 24px;
+        overflow-y: auto;
+}
+
+.image-icon {
+    width: 120px;
+    height: 120px;
+    background-size: cover; 
+    background-position: center; 
+    border: 2px solid gray;
+
+}
+
+.icons-nowrap {
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 500px;
+}
+
+.hero {
+    display: flex;
+    padding-top: 32px;
+    background-color: black;
+    padding: 16px;
+    min-height: 100vh;
+
+}
+
+
+.image-container {
+    width: 60%;
+ 
+}
+
+.imageresult-apis {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

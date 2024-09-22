@@ -1,10 +1,10 @@
 <app-default-layout></app-default-layout>
 
-<div id="hero">
-    <section id="image-container">
-        <img [src]="image_src" />
+<div class="hero">
+    <section class="image-container">
+        <img [src]="image_src" class="imageresult-apis" />
     </section>
-    <section id="date-explanation">
+    <section class="input-explanation-icons">
 
         <mat-form-field>
             <mat-label>Select a rover</mat-label>
@@ -22,7 +22,7 @@
         </mat-form-field>
 
 
-        <div id="images-icons-container">
+        <div class="explanation-icons-container icons-nowrap">
             <div class="image-icon" *ngFor="let response_photo of response_photos"
                 [ngStyle]="{'background-image': 'url(' + response_photo.img_src + ')'}"
                 (click)="clickIcon(response_photo.img_src)">

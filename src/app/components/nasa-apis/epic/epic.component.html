@@ -1,10 +1,10 @@
 <app-default-layout></app-default-layout>
 
-<div id="hero">
-    <section id="image-container">
-        <img [src]="image_src" />
+<div class="hero">
+    <section class="image-container">
+        <img [src]="image_src" class="imageresult-apis" />
     </section>
-    <section id="date-explanation">
+    <section class="input-explanation-icons">
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" (dateChange)="valueChanged($event)">
@@ -13,7 +13,7 @@
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <div id="images-icons-container">
+        <div class="explanation-icons-container icons-nowrap">
             <div class="image-icon" *ngFor="let image_link of image_links"
                 [ngStyle]="{'background-image': 'url(' + image_link + ')'}" (click)="clickIcon(image_link)">
 
