@@ -9,6 +9,8 @@
 
 }
 
+
+
 section {
     width: 100%;
     margin-top: 0;
@@ -67,10 +69,7 @@ justify-content: center;
     padding: 8px;
     display: flex;
     flex-direction: column;
-   
-
 }
-
 
 #apod-card .card-background{
     background-image: url('https://apod.nasa.gov/apod/image/2409/LDN1082_px2048.jpg');
@@ -110,7 +109,7 @@ justify-content: center;
 }
 
 .sagan-background {
-    background-image: url('https://apod.nasa.gov/apod/image/2409/NGC247-Hag-Ben2048.JPG');
+    background-image: url('https://i.pinimg.com/originals/ab/01/cb/ab01cbba05d8c2500c925ec0f9a0476c.gif');
     background-size: cover;
     position: absolute;
     width: 100%;
@@ -118,6 +117,26 @@ justify-content: center;
     z-index: 0;
     opacity: 0.2
    
+}
+
+.quote {
+    font-size: 1.5rem; 
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic; 
+}
+
+.author {
+    font-size: 1.2rem; 
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.autor a {
+    cursor: pointer;
+    text-decoration: none;
 }
 
 app-spacenews-box {
