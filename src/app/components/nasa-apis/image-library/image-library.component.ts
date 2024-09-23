@@ -28,13 +28,16 @@ export class ImageLibraryComponent {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
       
       this.items = response.collection.items;
+      this.isLoading = false;
      })
   }
 
   valuechange(event:any) {
+    this.isLoading = true ;
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
 
       this.items = response.collection.items;
+      this.isLoading = false;
 
      })
      }

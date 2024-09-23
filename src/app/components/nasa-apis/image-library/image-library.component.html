@@ -13,11 +13,18 @@
             </mat-form-field>
         </form>
 
-
-        <div class="explanation-icons-container icons-nowrap">
-            <div class="image-icon" *ngFor="let item of items"
-                [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item.href)">
-            </div>
+        <div class="explanation-icons-container loading" *ngIf="isLoading; else iconsContent">
+            <mat-spinner></mat-spinner>
         </div>
+
+
+
+        <ng-template #iconsContent>
+            <div class="explanation-icons-container icons-nowrap">
+                <div class="image-icon" *ngFor="let item of items"
+                    [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item.href)">
+                </div>
+            </div>
+        </ng-template>
     </section>
 </div>
