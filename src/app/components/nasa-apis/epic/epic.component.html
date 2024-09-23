@@ -13,11 +13,21 @@
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <div class="explanation-icons-container icons-nowrap">
-            <div class="image-icon" *ngFor="let image_link of image_links"
-                [ngStyle]="{'background-image': 'url(' + image_link + ')'}" (click)="clickIcon(image_link)">
+        <div class="explanation-icons-container loading" *ngIf="isLoading; else iconsContent">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <ng-template #iconsContent>
+            <div class="explanation-icons-container icons-nowrap">
+                <div class="image-icon" *ngFor="let image_link of image_links;let i = index"
+                    [ngStyle]="{'background-image': 'url(' + image_link + ')'}" (click)="clickIcon(image_link,i)"
+                    [attr.id]="'image-icon-' + i">
+                </div>
 
             </div>
-        </div>
+        </ng-template>
+
+
+
     </section>
 </div>

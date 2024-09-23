@@ -6,11 +6,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { Nasa } from '../../../../services/nasa.services';
 import { Item } from '../../../models/nasa-models.model';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-image-library',
   standalone: true,
-  imports: [DefaultLayoutComponent,MatFormFieldModule, MatInputModule,CommonModule,FormsModule],
+  imports: [DefaultLayoutComponent,MatFormFieldModule, MatInputModule,CommonModule,FormsModule,MatProgressSpinnerModule],
   templateUrl: './image-library.component.html',
   styleUrl: './image-library.component.scss'
 })
@@ -19,20 +20,22 @@ export class ImageLibraryComponent {
   items! : Item[];
   imgSrc! : any;
 
+  isLoading: boolean = true;  
+
+  
+
   constructor(private NasaService: Nasa) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
-      console.log(response);
+      
+      this.items = response.collection.items;
      })
   }
 
   valuechange(event:any) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
-      console.log(response);
-      this.items = response.collection.items;
-      console.log("ITEMSSSSSSS",this.items)
 
-    
-      
+      this.items = response.collection.items;
+
      })
      }
 
