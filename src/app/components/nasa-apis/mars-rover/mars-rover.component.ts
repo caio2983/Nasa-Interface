@@ -7,13 +7,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { Photo } from '../../../models/nasa-models.model';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
 @Component({
   selector: 'app-mars-rover',
   standalone: true,
-  imports: [DefaultLayoutComponent,MatFormFieldModule,MatInputModule,CommonModule,MatSelectModule,FormsModule],
+  imports: [DefaultLayoutComponent,MatFormFieldModule,MatInputModule,CommonModule,MatSelectModule,FormsModule,MatProgressSpinnerModule],
   templateUrl: './mars-rover.component.html',
   styleUrl: './mars-rover.component.scss'
 })
@@ -23,20 +24,30 @@ export class MarsRoverComponent {
   image_src! : string;
   response_photos! : any;
 
+  isLoading: boolean = true;  
+
    
   constructor(private NasaService: Nasa,private datePipe: DatePipe) {
     this.NasaService.getMarsRover(this.selected_rover,this.selected_sol).subscribe((response)=>{
-      console.log(response);
+   
       this.response_photos = response.photos;
+   
+      this.isLoading = false;
 
-      console.log("RESPONSE_PHOTOS",this.response_photos)
      })
 
      
   }
 
   valueChange(event : any) {
-    console.log(event);
+    this.isLoading = true;
+    this.NasaService.getMarsRover(this.selected_rover,this.selected_sol).subscribe((response)=>{
+   
+      this.response_photos = response.photos;
+   
+      this.isLoading = false;
+
+     })
 
 
  }

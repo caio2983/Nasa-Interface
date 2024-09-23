@@ -42,7 +42,7 @@ export class ImageLibraryComponent {
      })
      }
 
-   clickIcon(href: string ) {
+   clickIcon(href: string,i: number ) {
  
     this.NasaService.getLibraryitem(href).subscribe((response)=>{
       console.log(response);
@@ -50,6 +50,17 @@ export class ImageLibraryComponent {
       console.log("IMG SRC",this.imgSrc)
 
      })
+
+     const previouslySelected = document.querySelector('.selected');
+     if (previouslySelected) {
+       previouslySelected.classList.remove('selected');
+     }
+     
+     
+     const element = document.getElementById('image-icon-' + i);
+     if (element) {
+       element.classList.add('selected');
+     }
 
    }
 

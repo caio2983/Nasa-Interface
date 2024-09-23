@@ -1,4 +1,4 @@
-import { Component,NgModule,OnInit } from '@angular/core';
+import { Component,NgModule,OnInit,AfterViewInit,AfterContentInit,afterRender,ViewChild,ElementRef,QueryList,ViewChildren,AfterViewChecked } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultLayoutComponent } from '../../default-layout/default-layout.component';
 import { Nasa } from '../../../../services/nasa.services';
@@ -23,10 +23,33 @@ export class EpicComponent {
   date! : string | null;
   date_barra! : string | null;
   images_data! : Epic[];
-  image_links! : string[]; 
+  image_links : string[] = []; 
   image_src! : string;
+  identifier! : string;
+
+
 
   isLoading: boolean = true;  
+
+  @ViewChildren('icon',{read:ElementRef}) icons!: QueryList<ElementRef>;
+
+
+   ngAfterViewChecked(): void {
+
+    if (!this.isLoading && this.icons && this.icons.length > 0) {
+ 
+      const firstElement = this.icons.first.nativeElement;
+      if (firstElement) {
+        firstElement.classList.add('selected');
+      }
+
+      this.ngAfterViewChecked = () => {};
+    }
+  }
+
+  
+  
+
 
 
   constructor(private NasaService: Nasa,private datePipe: DatePipe) {
@@ -34,6 +57,10 @@ export class EpicComponent {
       console.log(response);
       this.images_data = response;
       this.image_links = response.image_links;
+      this.image_src = response.image_links[0];
+
+
+      
 
       this.isLoading = false;
 
@@ -42,12 +69,18 @@ export class EpicComponent {
      })
 
      
+
+     
  
   }
 
+ 
+
+  
+
 
   valueChanged(event : any) {
-     console.log(event);
+
      this.date = this.datePipe.transform(event.value,'yyyy-MM-dd'); 
      this.date_barra = this.datePipe.transform(event.value,'yyyy/MM/dd'); 
 

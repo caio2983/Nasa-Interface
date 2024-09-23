@@ -21,8 +21,9 @@
 
         <ng-template #iconsContent>
             <div class="explanation-icons-container icons-nowrap">
-                <div class="image-icon" *ngFor="let item of items"
-                    [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item.href)">
+                <div class="image-icon" *ngFor="let item of items;let i = index"
+                    [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item.href,i)"
+                    [attr.id]="'image-icon-' + i">
                 </div>
             </div>
         </ng-template>

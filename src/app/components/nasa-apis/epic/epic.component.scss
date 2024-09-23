@@ -4,6 +4,21 @@ mat-form-field {
     padding: 8px;
 }
 
-.selected {
-    border: 3px solid white;
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.details-image {
+    width: 100%;
+    border: 2px solid white;
+    border-top : 0;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    overflow-y: auto;
 }

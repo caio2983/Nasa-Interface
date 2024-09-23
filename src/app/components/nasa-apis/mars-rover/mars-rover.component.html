@@ -8,7 +8,7 @@
 
         <mat-form-field>
             <mat-label>Select a rover</mat-label>
-            <mat-select [(value)]="selected_rover">
+            <mat-select [(ngModel)]="selected_rover" (change)="valueChange($event)">
                 <mat-option value="curiosity">Curiosity</mat-option>
                 <mat-option value="opportunity">Opportunity</mat-option>
                 <mat-option value="spirit">Spirit</mat-option>
@@ -22,12 +22,21 @@
         </mat-form-field>
 
 
-        <div class="explanation-icons-container icons-nowrap">
-            <div class="image-icon" *ngFor="let response_photo of response_photos"
-                [ngStyle]="{'background-image': 'url(' + response_photo.img_src + ')'}"
-                (click)="clickIcon(response_photo.img_src)">
-
-            </div>
+        <div class="explanation-icons-container loading" *ngIf="isLoading; else iconsContent">
+            <mat-spinner></mat-spinner>
         </div>
+
+        <ng-template #iconsContent>
+            <div class="explanation-icons-container icons-nowrap">
+                <div class="image-icon" *ngFor="let response_photo of response_photos"
+                    [ngStyle]="{'background-image': 'url(' + response_photo.img_src + ')'}"
+                    (click)="clickIcon(response_photo.img_src)">
+
+                </div>
+            </div>
+        </ng-template>
+
+
+
     </section>
 </div>

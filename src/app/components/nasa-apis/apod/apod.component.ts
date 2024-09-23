@@ -43,6 +43,7 @@ export class ApodComponent {
      this.explanation = response.explanation;
      this.title = response.title;
      this.copyright = response.copyright;
+     this.date = response.date;
      this.media_type = response.media_type;
 
      this.isLoading = false;
