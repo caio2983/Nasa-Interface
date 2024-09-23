@@ -63,10 +63,16 @@ h3, h4 {
         border: 2px solid white;
         height: auto;
         display: flex;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
         gap: 8px;
         padding: 24px;
         overflow-y: auto;
+}
+
+.loading {
+    height: 500px;
 }
 
 .image-icon {
@@ -95,7 +101,11 @@ h3, h4 {
 
 
 .image-container {
-    width: 60%;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
  
 }
 

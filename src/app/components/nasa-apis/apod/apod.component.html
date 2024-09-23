@@ -2,7 +2,12 @@
 
 <div class="hero">
     <section class="image-container">
-        <img [src]="hdurl" class="imageresult-apis" />
+
+        <mat-spinner *ngIf="isLoading; else imageContent"></mat-spinner>
+
+
+        <ng-template #imageContent><img [src]="hdurl" class="imageresult-apis" /></ng-template>
+
     </section>
     <section class="input-explanation-icons">
         <mat-form-field>
@@ -14,10 +19,18 @@
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <div class="explanation-icons-container">
-            <h1>{{title}}</h1>
-            <p>{{copyright}}</p>
-            <p>{{explanation}}</p>
+        <div class="explanation-icons-container loading" *ngIf="isLoading; else textContent">
+            <mat-spinner></mat-spinner>
         </div>
+
+        <ng-template #textContent>
+            <div class="explanation-icons-container ">
+                <h1>{{title}}</h1>
+                <p>{{copyright}}</p>
+                <p>{{explanation}}</p>
+            </div>
+        </ng-template>
+
+
     </section>
 </div>

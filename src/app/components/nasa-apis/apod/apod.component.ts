@@ -1,12 +1,14 @@
-import { Component,ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { DefaultLayoutComponent } from '../../default-layout/default-layout.component';
 import { Nasa } from '../../../../services/nasa.services';
 import { DatePipe } from '@angular/common';
-import {MatDateRangePicker,MatDateRangeInput, MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatDatepickerInput } from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { provideNativeDateAdapter} from '@angular/material/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -14,7 +16,7 @@ import { provideNativeDateAdapter} from '@angular/material/core';
   selector: 'app-apod',
   standalone: true,
   providers: [provideNativeDateAdapter()],
-  imports: [DefaultLayoutComponent,MatFormFieldModule, MatInputModule, MatDatepickerModule,MatDatepickerInput,DatePipe],
+  imports: [DefaultLayoutComponent,MatFormFieldModule,CommonModule ,MatInputModule, MatDatepickerModule,MatDatepickerInput,DatePipe,MatProgressSpinnerModule],
   templateUrl: './apod.component.html',
   styleUrl: './apod.component.scss'
 })
@@ -28,6 +30,7 @@ export class ApodComponent {
   copyright!: string;
   media_type!: string;
   date! : string | null;
+  isLoading: boolean = true;  
 
   constructor(private NasaService: Nasa,private datePipe: DatePipe){
     this.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd') ;
@@ -42,17 +45,18 @@ export class ApodComponent {
      this.copyright = response.copyright;
      this.media_type = response.media_type;
 
+     this.isLoading = false;
+
 
     })
-
-
-  
   }
 
   valueChanged(event : any) {
      console.log(event)
      this.date = this.datePipe.transform(event.value,'yyyy-MM-dd'); 
      console.log(this.date);
+
+     this.isLoading = true ;
      this.NasaService.getAPOD(this.date).subscribe((response)=>{
       console.log(response);
       this.hdurl = response.hdurl;
@@ -60,6 +64,8 @@ export class ApodComponent {
       this.title = response.title;
       this.copyright = response.copyright;
       this.media_type = response.media_type;
+
+      this.isLoading = false;
  
  
      })
