@@ -17,14 +17,15 @@ export class HomePageComponent {
 
   constructor( private SpaceNewsService : SpaceNews) {
     this.SpaceNewsService.getSpaceNews().subscribe((response)=>{
-      console.log(response);
+      console.log("SPACENEWS RESPONSE",response);
        for (let item of response.results){
          this.carousel_data.push({
           "image_url" :  item.image_url,
           "title" :  item.title,
           "summary" : item.summary,
           "url" : item.url,
-          "news_site": item.news_site
+          "news_site": item.news_site,
+          "published_at": item.published_at
 
          })
        }

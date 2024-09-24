@@ -9,6 +9,7 @@ import { DatePipe } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Epic } from '../../../models/nasa-models.model';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-epic',
@@ -26,6 +27,8 @@ export class EpicComponent {
   image_links : string[] = []; 
   image_src! : string;
   identifier! : string;
+
+  prev_selected : string = 'image-icon-0' 
 
 
 
@@ -52,7 +55,7 @@ export class EpicComponent {
 
 
 
-  constructor(private NasaService: Nasa,private datePipe: DatePipe) {
+  constructor(private NasaService: Nasa,private datePipe: DatePipe,private el: ElementRef, private renderer: Renderer2 ) {
     this.NasaService.getEpic("2024-09-13","2024/09/13").subscribe((response)=>{
       console.log(response);
       this.images_data = response;
@@ -101,20 +104,27 @@ export class EpicComponent {
   }
 
   
-clickIcon(imageLink: string,i : number): void {
-  this.image_src = imageLink;
+  clickIcon(imageLink: string, i: number): void { // Não está removendo a classe
+    console.log(this.icons)
+    this.image_src = imageLink;
+    const native_element =  this.el.nativeElement;
 
-  const previouslySelected = document.querySelector('.selected');
-if (previouslySelected) {
-  previouslySelected.classList.remove('selected');
-}
-
-
-const element = document.getElementById('image-icon-' + i);
-if (element) {
-  element.classList.add('selected');
-}
-}
+  
+  
+    const previouslySelected = this.el.nativeElement.querySelector('.selected');
+    
+  
+      this.el.nativeElement.removeClass(document.getElementById(this.prev_selected),'selected');
+    
+    console.log("TESTE",previouslySelected)
+  
+    
+    const element = document.getElementById('image-icon-' + i);
+    if (element) {
+      element.classList.add('selected');
+    }
+  }
+  
 
 
 
