@@ -23,8 +23,8 @@ export class MarsRoverComponent {
   selected_sol = 1000;
   image_src! : string;
   response_photos! : any;
-
   isLoading: boolean = true;  
+  selectedIndex: number = 0; 
 
    
   constructor(private NasaService: Nasa,private datePipe: DatePipe) {
@@ -52,8 +52,10 @@ export class MarsRoverComponent {
 
  }
 
-  clickIcon(imgsrc : string): void {
+  clickIcon(imgsrc : string,i: number): void {
    this.image_src = imgsrc; 
+   this.selectedIndex = i;
+
   }
   
 }

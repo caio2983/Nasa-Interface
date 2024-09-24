@@ -28,9 +28,9 @@
 
         <ng-template #iconsContent>
             <div class="explanation-icons-container icons-nowrap">
-                <div class="image-icon" *ngFor="let response_photo of response_photos"
+                <div class="image-icon" *ngFor="let response_photo of response_photos;let i = index"
                     [ngStyle]="{'background-image': 'url(' + response_photo.img_src + ')'}"
-                    (click)="clickIcon(response_photo.img_src)">
+                    (click)="clickIcon(response_photo.img_src,i)" [class.selected]="i === selectedIndex">
 
                 </div>
             </div>
