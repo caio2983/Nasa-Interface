@@ -23,10 +23,16 @@ export class EpicComponent {
 
   date! : string | null;
   date_barra! : string | null;
-  images_data! : Epic[];
+  images_data! : {
+    data:Epic[]
+
+  }
   image_links : string[] = []; 
   image_src! : string;
-  identifier! : string;
+  // image_caption!: string;
+  // image_identifier!: string;
+  // image_date!: string;
+  // identifier! : string;
   isLoading: boolean = true;  
   selectedIndex: number = 0; 
 
@@ -39,6 +45,7 @@ export class EpicComponent {
       this.image_src = response.image_links[0];
       this.isLoading = false;
      })
+
 
   }
 
@@ -72,6 +79,9 @@ export class EpicComponent {
   clickIcon(imageLink: string,index: number): void {
     this.image_src = imageLink;
     this.selectedIndex = index;
+
+    
+    console.log("IMAGES DATA TESTE",this.images_data.data)
   }
 
 

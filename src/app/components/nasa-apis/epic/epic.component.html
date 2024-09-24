@@ -18,15 +18,25 @@
         </div>
 
         <ng-template #iconsContent>
-            <div class="explanation-icons-container icons-nowrap">
+            <div class="explanation-icons-container icons-nowrap epic-icons">
                 <div class="image-icon" *ngFor="let image_link of image_links;let i = index" #icon
                     [ngStyle]="{'background-image': 'url(' + image_link + ')'}" (click)="clickIcon(image_link,i)"
                     [attr.id]="'image-icon-' + i" [class.selected]="i === selectedIndex">
 
+
+
                 </div>
 
+
             </div>
-            <div class="details-image"></div>
+
+            <div class="details-image">
+                <h6>Identifier : {{images_data.data[selectedIndex].identifier}}</h6>
+                <h6>Caption :{{images_data.data[selectedIndex].caption}}</h6>
+                <h6>Date : {{images_data.data[selectedIndex].date}}</h6>
+            </div>
+
+
 
         </ng-template>
 
