@@ -1,4 +1,4 @@
-import { Component,NgModule } from '@angular/core';
+import { Component,ViewChildren,QueryList,ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultLayoutComponent } from '../../default-layout/default-layout.component';
 import {  MatInputModule } from '@angular/material/input';
@@ -21,8 +21,8 @@ export class ImageLibraryComponent {
   imgSrc! : any;
 
   isLoading: boolean = true;  
+  selectedIndex: number = 0; 
 
-  
 
   constructor(private NasaService: Nasa) {
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
@@ -48,19 +48,12 @@ export class ImageLibraryComponent {
       console.log(response);
       this.imgSrc = response[0];
       console.log("IMG SRC",this.imgSrc)
+      this.selectedIndex = i;
 
      })
 
-     const previouslySelected = document.querySelector('.selected');
-     if (previouslySelected) {
-       previouslySelected.classList.remove('selected');
-     }
-     
-     
-     const element = document.getElementById('image-icon-' + i);
-     if (element) {
-       element.classList.add('selected');
-     }
+  
+    
 
    }
 

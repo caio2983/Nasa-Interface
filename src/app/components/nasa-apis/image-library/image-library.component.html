@@ -23,7 +23,7 @@
             <div class="explanation-icons-container icons-nowrap">
                 <div class="image-icon" *ngFor="let item of items;let i = index"
                     [ngStyle]="{'background-image': 'url(' + item.links[0].href + ')'}" (click)="clickIcon(item.href,i)"
-                    [attr.id]="'image-icon-' + i">
+                    [attr.id]="'image-icon-' + i" [class.selected]="i === selectedIndex">
                 </div>
             </div>
         </ng-template>

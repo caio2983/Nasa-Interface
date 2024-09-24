@@ -10,8 +10,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { provideNativeDateAdapter} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-
-
 @Component({
   selector: 'app-apod',
   standalone: true,
@@ -31,6 +29,9 @@ export class ApodComponent {
   media_type!: string;
   date! : string | null;
   isLoading: boolean = true;  
+
+  
+ 
 
   constructor(private NasaService: Nasa,private datePipe: DatePipe){
     this.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd') ;

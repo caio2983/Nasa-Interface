@@ -1,4 +1,4 @@
-import { Component,NgModule,OnInit,AfterViewInit,AfterContentInit,afterRender,ViewChild,ElementRef,QueryList,ViewChildren,AfterViewChecked } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultLayoutComponent } from '../../default-layout/default-layout.component';
 import { Nasa } from '../../../../services/nasa.services';
@@ -28,22 +28,10 @@ export class EpicComponent {
   image_src! : string;
   identifier! : string;
   isLoading: boolean = true;  
-
-  @ViewChildren('icon') icons!: QueryList<ElementRef>;
   selectedIndex: number = 0; 
 
 
-   ngAfterViewChecked(): void {
-
-    this.selectedIndex = 0;
-  }
-
-  
-  
-
-
-
-  constructor(private NasaService: Nasa,private datePipe: DatePipe,private el: ElementRef, private renderer: Renderer2 ) {
+  constructor(private NasaService: Nasa,private datePipe: DatePipe, private renderer: Renderer2 ) {
     this.NasaService.getEpic("2024-09-13","2024/09/13").subscribe((response)=>{
       console.log(response);
       this.images_data = response;
