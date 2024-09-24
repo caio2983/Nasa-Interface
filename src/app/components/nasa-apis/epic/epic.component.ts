@@ -27,27 +27,15 @@ export class EpicComponent {
   image_links : string[] = []; 
   image_src! : string;
   identifier! : string;
-
-  prev_selected : string = 'image-icon-0' 
-
-
-
   isLoading: boolean = true;  
 
-  @ViewChildren('icon',{read:ElementRef}) icons!: QueryList<ElementRef>;
+  @ViewChildren('icon') icons!: QueryList<ElementRef>;
+  selectedIndex: number = 0; 
 
 
    ngAfterViewChecked(): void {
 
-    if (!this.isLoading && this.icons && this.icons.length > 0) {
- 
-      const firstElement = this.icons.first.nativeElement;
-      if (firstElement) {
-        firstElement.classList.add('selected');
-      }
-
-      this.ngAfterViewChecked = () => {};
-    }
+    this.selectedIndex = 0;
   }
 
   
@@ -61,20 +49,9 @@ export class EpicComponent {
       this.images_data = response;
       this.image_links = response.image_links;
       this.image_src = response.image_links[0];
-
-
-      
-
       this.isLoading = false;
-
-
-  
      })
 
-     
-
-     
- 
   }
 
  
@@ -104,30 +81,10 @@ export class EpicComponent {
   }
 
   
-  clickIcon(imageLink: string, i: number): void { // Não está removendo a classe
-    console.log(this.icons)
+  clickIcon(imageLink: string,index: number): void {
     this.image_src = imageLink;
-    const native_element =  this.el.nativeElement;
-
-  
-  
-    const previouslySelected = this.el.nativeElement.querySelector('.selected');
-    
-  
-      this.el.nativeElement.removeClass(document.getElementById(this.prev_selected),'selected');
-    
-    console.log("TESTE",previouslySelected)
-  
-    
-    const element = document.getElementById('image-icon-' + i);
-    if (element) {
-      element.classList.add('selected');
-    }
+    this.selectedIndex = index;
   }
-  
-
-
-
 
 
 }
