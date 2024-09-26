@@ -63,7 +63,7 @@ export class EpicComponent {
       console.log("IMAGES LINKS",response.image_links);
       this.images_data = response;
       this.image_links = response.image_links;
-
+      this.image_src = response.image_links[0];
       this.isLoading = false;
     
  

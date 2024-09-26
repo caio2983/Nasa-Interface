@@ -36,10 +36,10 @@ export class ApodComponent {
   constructor(private NasaService: Nasa,private datePipe: DatePipe){
     this.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd') ;
 
-    console.log(this.date);
+
     
     this.NasaService.getAPOD(this.date).subscribe((response)=>{
-     console.log(response);
+
      this.hdurl = response.hdurl;
      this.explanation = response.explanation;
      this.title = response.title;
@@ -54,13 +54,13 @@ export class ApodComponent {
   }
 
   valueChanged(event : any) {
-     console.log(event)
+
      this.date = this.datePipe.transform(event.value,'yyyy-MM-dd'); 
-     console.log(this.date);
+
 
      this.isLoading = true ;
      this.NasaService.getAPOD(this.date).subscribe((response)=>{
-      console.log(response);
+   
       this.hdurl = response.hdurl;
       this.explanation = response.explanation;
       this.title = response.title;

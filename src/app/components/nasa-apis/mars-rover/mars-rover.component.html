@@ -2,21 +2,33 @@
 
 <div class="hero">
     <section class="image-container">
-        <img [src]="image_src" class="imageresult-apis" />
+
+        <mat-spinner *ngIf="isLoading; else imageContent"></mat-spinner>
+
+
+        <ng-template #imageContent>
+
+
+            <img [src]="image_src" class="imageresult-apis" />
+
+        </ng-template>
+
     </section>
     <section class="input-explanation-icons">
 
+
         <mat-form-field>
             <mat-label>Select a rover</mat-label>
-            <mat-select [(ngModel)]="selected_rover" (change)="valueChange($event)">
+            <mat-select [(ngModel)]="selected_rover" (change)="valueChange($event)" name="rover">
                 <mat-option value="curiosity">Curiosity</mat-option>
                 <mat-option value="opportunity">Opportunity</mat-option>
                 <mat-option value="spirit">Spirit</mat-option>
             </mat-select>
+
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Select a sol</mat-label>
+            <mat-label>Select a solar day in Mars</mat-label>
             <input matInput placeholder="Integer Number" [(ngModel)]="selected_sol" name="sols"
                 (change)="valueChange($event)">
         </mat-form-field>
@@ -34,7 +46,19 @@
 
                 </div>
             </div>
+
+
+            <div class="details-image">
+                <div>
+                    <h6>Identifier : <span>{{id}}</span>
+                    </h6>
+                    <h6>Camera Name : <span>{{camera_name}}</span></h6>
+                    <h6>Earth Date : <span>{{earth_date}}</span></h6>
+                </div>
+            </div>
         </ng-template>
+
+
 
 
 

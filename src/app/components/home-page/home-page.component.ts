@@ -17,7 +17,7 @@ export class HomePageComponent {
 
   constructor( private SpaceNewsService : SpaceNews) {
     this.SpaceNewsService.getSpaceNews().subscribe((response)=>{
-      console.log("SPACENEWS RESPONSE",response);
+      
        for (let item of response.results){
          this.carousel_data.push({
           "image_url" :  item.image_url,
@@ -29,7 +29,7 @@ export class HomePageComponent {
 
          })
        }
-       console.log("CAROUSEL IMAGES",this.carousel_data)
+
      })
    
   }
