@@ -8,15 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { Nasa } from '../../../../services/nasa.services';
 import { Item } from '../../../models/nasa-models.model';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButton } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-image-library',
   standalone: true,
-  imports: [DefaultLayoutComponent,MatFormFieldModule, MatInputModule,CommonModule,FormsModule,MatProgressSpinnerModule],
+  imports: [DefaultLayoutComponent,MatFormFieldModule, MatInputModule,CommonModule,FormsModule,MatProgressSpinnerModule,MatButton],
   templateUrl: './image-library.component.html',
   styleUrl: './image-library.component.scss'
 })
-export class ImageLibraryComponent {
+export class ImageLibraryComponent { 
   tags : string = "galaxy";
   items! : Item[];
   imgSrc! : any;
@@ -70,17 +72,20 @@ export class ImageLibraryComponent {
 
 
   valuechange(event:any) {
+
+ 
+
     this.isLoading = true ;
     this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
-
       this.items = response.collection.items;
       this.isLoading = false;
+
+      console.log("ITEMS TESTE",this.items)
 
      })
      }
 
    clickIcon(href: string,i: number ) {
-
 
 
     console.log("i",this.items[i]) // Tirar os dados da imagem daqui
@@ -96,7 +101,8 @@ export class ImageLibraryComponent {
       this.keywords = this.items[i].data[0].keywords;
       this.description = this.items[i].data[0].description;
       this.media_type = this.items[i].data[0].media_type;
-        
+
+      
 
      })
 

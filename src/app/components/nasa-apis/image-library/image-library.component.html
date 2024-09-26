@@ -24,12 +24,17 @@
 
 
     </section>
+
     <section class="input-explanation-icons">
         <form class="example-form">
             <mat-form-field class="example-full-width">
-                <mat-label>Image search</mat-label>
+                <mat-label>Tags // Exemplos : Galaxy, Black hole, Saturn</mat-label>
                 <input matInput placeholder="Type tags" [(ngModel)]="tags" name="tags" (change)="valuechange($event)">
+
             </mat-form-field>
+            <button mat-button id="submit" type="submit">Submit</button>
+
+
         </form>
 
         <div class="explanation-icons-container loading" *ngIf="isLoading; else iconsContent">
