@@ -129,16 +129,20 @@ h3, h4 {
     width: 100%;
     border: 2px solid white;
     border-top : 0;
-    height: 250px;
+    height: auto;
+    overflow-x: hidden;
+    color: white;
+    text-align: start;
     display: flex;
-    align-items: flex-start;
+    align-content: center;
+}
+
+.details-image {
+    height: auto;
     justify-content: center;
     flex-direction: column;
     gap: 8px;
-    padding: 24px;
-    overflow-y: auto;
-    color: white;
-    text-align: start;
+    padding: 48px;
 }
 
 
