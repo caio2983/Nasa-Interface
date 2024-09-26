@@ -2,8 +2,20 @@
 
 
 <div class="hero">
+
     <section class="image-container">
-        <img [src]="imgSrc" />
+
+        <mat-spinner *ngIf="isLoading; else imageContent"></mat-spinner>
+
+
+        <ng-template #imageContent>
+
+            <img [src]="imgSrc" class="imageresult-apis" />
+
+        </ng-template>
+
+
+
     </section>
     <section class="input-explanation-icons">
         <form class="example-form">

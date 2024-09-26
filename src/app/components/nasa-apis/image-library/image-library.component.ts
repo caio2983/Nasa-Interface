@@ -44,7 +44,7 @@ export class ImageLibraryComponent {
         this.date = this.items[0].data[0].date_created;
         this.keywords = this.items[0].data[0].keywords;
         this.description = this.items[0].data[0].description;
-        this.isLoading = false;
+        
   
         console.log("HREF TESTE", this.href);
   
@@ -55,7 +55,8 @@ export class ImageLibraryComponent {
       (response) => {
 
         console.log("RESPONNSE GETLIBARY ITEM CONSTRUCTOR", response);
-        this.imgSrc = response[0]
+        this.imgSrc = response[0];
+        this.isLoading = false;
       },
       (error) => {
  
