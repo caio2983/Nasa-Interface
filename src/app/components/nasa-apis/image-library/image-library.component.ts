@@ -76,13 +76,37 @@ export class ImageLibraryComponent {
  
 
     this.isLoading = true ;
-    this.NasaService.getNasaLibrary(this.tags).subscribe((response)=>{
-      this.items = response.collection.items;
-      this.isLoading = false;
+    this.NasaService.getNasaLibrary(this.tags).pipe(
+   
+      switchMap((response) => {
+        this.items = response.collection.items;
+        console.log("ITEMS", this.items);
+  
+        this.href = this.items[0].href;
+        this.title = this.items[0].data[0].title;
+        this.date = this.items[0].data[0].date_created;
+        this.keywords = this.items[0].data[0].keywords;
+        this.description = this.items[0].data[0].description;
+        this.media_type = this.items[0].data[0].media_type;
+        
+  
+        console.log("HREF TESTE", this.href);
+  
+  
+        return this.NasaService.getLibraryitem(this.href);
+      })
+    ).subscribe(
+      (response) => {
 
-      console.log("ITEMS TESTE",this.items)
-
-     })
+        console.log("RESPONNSE GETLIBARY ITEM CONSTRUCTOR", response);
+        this.imgSrc = response[0];
+        this.isLoading = false;
+      },
+      (error) => {
+ 
+        console.error("Erro durante as chamadas da API", error);
+      }
+    );
      }
 
    clickIcon(href: string,i: number ) {
