@@ -1,8 +1,20 @@
 <app-default-layout></app-default-layout>
 
-<div class="hero" id="teste">
+<div class="hero">
     <section class="image-container">
-        <img [src]="image_src" class="imageresult-apis" />
+
+        <mat-spinner *ngIf="isLoading; else imageContent"></mat-spinner>
+
+
+        <ng-template #imageContent>
+
+            <img [src]="image_src" class="imageresult-apis" />
+
+        </ng-template>
+
+
+
+
     </section>
     <section class="input-explanation-icons">
         <mat-form-field>
