@@ -112,8 +112,10 @@ h3, h4 {
     max-width: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
+    padding: 3%;
+   
  
 }
 
@@ -122,6 +124,24 @@ h3, h4 {
     width: 100%;
     height: auto;
 }
+
+.details-image {
+    width: 100%;
+    border: 2px solid white;
+    border-top : 0;
+    height: 250px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    overflow-y: auto;
+    color: white;
+    text-align: start;
+}
+
+
 
 
 

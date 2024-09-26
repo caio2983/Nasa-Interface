@@ -6,7 +6,11 @@
         <mat-spinner *ngIf="isLoading; else imageContent"></mat-spinner>
 
 
-        <ng-template #imageContent><img [src]="hdurl" class="imageresult-apis" /></ng-template>
+        <ng-template #imageContent>
+
+            <img [src]="hdurl" class="imageresult-apis" />
+
+        </ng-template>
 
     </section>
     <section class="input-explanation-icons">

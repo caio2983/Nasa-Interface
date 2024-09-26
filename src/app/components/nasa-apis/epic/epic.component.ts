@@ -29,10 +29,6 @@ export class EpicComponent {
   }
   image_links : string[] = []; 
   image_src! : string;
-  // image_caption!: string;
-  // image_identifier!: string;
-  // image_date!: string;
-  // identifier! : string;
   isLoading: boolean = true;  
   selectedIndex: number = 0; 
 
