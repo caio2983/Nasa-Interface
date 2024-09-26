@@ -7,10 +7,17 @@
 
         <mat-spinner *ngIf="isLoading; else imageContent"></mat-spinner>
 
-
         <ng-template #imageContent>
 
-            <img [src]="imgSrc" class="imageresult-apis" />
+            <video *ngIf="media_type === 'video'; else image" class="imageresult-apis" width="320" height="240" controls
+                autoplay>
+                <source [src]="imgSrc" type="video/mp4">
+
+            </video>
+
+            <ng-template #image>
+                <img [src]="imgSrc" class="imageresult-apis" />
+            </ng-template>
 
         </ng-template>
 
@@ -41,12 +48,15 @@
 
             <div class="details-image">
                 <div>
-                    <h6>Title : <span>{{title}}</span>
-                    </h6>
+                    <h1>{{title}}
+                    </h1>
+
+
                     <h6>Description : <span>{{description}}</span></h6>
                     <h6>Keywords : <span>{{keywords}}</span></h6>
                 </div>
             </div>
+
 
         </ng-template>
     </section>
