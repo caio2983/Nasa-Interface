@@ -147,6 +147,22 @@ fastify.listen({ port: 3000 }, function (err, address) {
         reply.status(500).send({ error: 'Não foi possível recuperar os dados.' });
       }
     });
+
+    fastify.get('/marsrover/:rover_name/:sol', async (request, reply) => {
+      try {
+        const sol = request.params.sol; 
+        const rover_name = request.params.rover_name; 
+        console.log(reply.body);
+        
+     
+        const response = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover_name}/photos?page=1&sol=${sol}&api_key=${apiKey_apod}`);
+        
+        return response.data;
+      } catch (error) {
+        fastify.log.error(error);
+        reply.status(500).send({ error: 'Não foi possível recuperar os dados.' });
+      }
+    });
     
   }
   

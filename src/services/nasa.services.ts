@@ -50,11 +50,8 @@ getLibraryitem(href: string) {
 //Mars rover photos service
 
 getMarsRover(rover_name: string,sol: number): Observable<any> {
-  let params = new HttpParams();
-  params = params.set('sol', sol);
-  params = params.set('rover_name', rover_name);
 
-  return this.httpClient.get(this.mars, { params });
+  return this.httpClient.get(`${this.mars}/marsrover/${rover_name}/${sol}`);
 }
 }
 
