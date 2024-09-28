@@ -31,11 +31,10 @@ getAPOD(date: any): Observable<any> {
 getEpic(date: any,date_barra: any): Observable<any> {
 
 let params = new HttpParams();
-params = params.set('date', date);
 params = params.set('date_barra', date_barra);
 
 
-  return this.httpClient.get<Epic[]>(this.epic, { params });
+  return this.httpClient.get<Epic[]>(`${this.epic}/epic/${date}`);
 }
 
 
