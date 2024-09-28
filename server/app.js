@@ -91,15 +91,17 @@ fastify.listen({ port: 3000 }, function (err, address) {
 
     fastify.get('/epic/:date', async (request, reply) => {
       try {
-        const date = request.params.date; 
-        const date_barra = request.params.date_barra;
-        console.log(reply.body);
+        const date = request.params.date;
+        const [year, month, day] = date.split('-'); 
+
+        const date_barra = `${year}/${month}/${day}`;
+        
         const image_links = [];
         
      
         const response = await axios.get(`https://api.nasa.gov/EPIC/api/enhanced/date/${date}?api_key=${process.env.API_KEY_APOD}`);
         for(let response_item of response.data) {
-          image_links.push(`https://api.nasa.gov/EPIC/archive/enhanced/${date_barra}/png/${response_item.image}.png?api_key=${apiKey_apod}`)
+          image_links.push(`https://api.nasa.gov/EPIC/archive/enhanced/${date_barra}/png/${response_item.image}.png?api_key=${process.env.API_KEY_APOD}`)
   
         }
   
@@ -110,8 +112,22 @@ fastify.listen({ port: 3000 }, function (err, address) {
           image_links: image_links
         });
       } catch (error) {
-        fastify.log.error(error);
-        reply.status(500).send({ error: 'Não foi possível recuperar os dados.' });
+        fastify.log.error('Erro ao tentar obter dados da NASA:', {
+          message: error.message,            // Mensagem do erro
+          status: error.response?.status,    // Status HTTP (se disponível)
+          statusText: error.response?.statusText, // Texto do status (se disponível)
+          data: error.response?.data,        // Dados retornados no erro (se disponíveis)
+          config: error.config,              // Configuração da requisição Axios
+        });
+    
+        // Resposta detalhada enviada ao cliente (opcional para desenvolvimento)
+        reply.status(500).send({
+          error: 'Não foi possível recuperar os dados.',
+          message: error.message,            // Mensagem de erro
+          status: error.response?.status,    // Status HTTP (se disponível)
+          statusText: error.response?.statusText, // Texto do status (se disponível)
+          data: error.response?.data         // Dados retornados no erro (se disponíveis)
+        });
       }
     });
     

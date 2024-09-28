@@ -34,7 +34,7 @@ export class EpicComponent {
 
 
   constructor(private NasaService: Nasa,private datePipe: DatePipe, private renderer: Renderer2 ) {
-    this.NasaService.getEpic("2024-09-13","2024/09/13").subscribe((response)=>{
+    this.NasaService.getEpic("2024-09-13").subscribe((response)=>{
       console.log(response);
       this.images_data = response;
       this.image_links = response.image_links;
@@ -58,7 +58,7 @@ export class EpicComponent {
     
      this.isLoading = true ;
 
-     this.NasaService.getEpic(this.date,this.date_barra).subscribe((response)=>{
+     this.NasaService.getEpic(this.date).subscribe((response)=>{
       console.log(response);
       console.log("IMAGES LINKS",response.image_links);
       this.images_data = response;

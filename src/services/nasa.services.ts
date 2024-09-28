@@ -28,10 +28,7 @@ getAPOD(date: any): Observable<any> {
 }
 
 // Earth polychromatic images service
-getEpic(date: any,date_barra: any): Observable<any> {
-
-let params = new HttpParams();
-params = params.set('date_barra', date_barra);
+getEpic(date: any): Observable<any> {
 
 
   return this.httpClient.get<Epic[]>(`${this.epic}/epic/${date}`);
