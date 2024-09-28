@@ -3,6 +3,6 @@ export const environment = {
     epic:'',
     library: '',
     mars:'',
-    spacenews:''
+    spacenews:'https://nasa-interface-uiqo.vercel.app/spacenews'
 };
 

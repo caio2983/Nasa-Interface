@@ -73,6 +73,21 @@ fastify.listen({ port: 3000 }, function (err, address) {
         });
       }
     });
+
+
+    fastify.get('/spacenews', async (request, reply) => {
+      try {
+        console.log(reply.body);
+        
+     
+        const response = await axios.get(`https://api.spaceflightnewsapi.net/v4/articles?news_site=NASA`);
+        
+        return response.data;
+      } catch (error) {
+        fastify.log.error(error);
+        reply.status(500).send({ error: 'Não foi possível recuperar os dados.' });
+      }
+    });
     
   }
   

@@ -17,3 +17,5 @@ import { ArticleResults } from "../app/models/spacenews-models.model";
         return this.httpClient.get<ArticleResults>(this.spacenews);
     }
   }
+
+  
