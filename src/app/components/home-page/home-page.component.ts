@@ -2,13 +2,14 @@ import { Component,ViewChild } from '@angular/core';
 import { DefaultLayoutComponent } from '../default-layout/default-layout.component';
 import { SpaceNews } from '../../../services/spacenews.service';
 import { SpacenewsBoxComponent } from '../spacenews/spacenews-box/spacenews-box.component';
-import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [DefaultLayoutComponent,SpacenewsBoxComponent,NgbCarouselModule],
+  imports: [DefaultLayoutComponent,SpacenewsBoxComponent,NgbCarouselModule,RouterModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
