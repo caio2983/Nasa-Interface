@@ -37,10 +37,8 @@ getEpic(date: any): Observable<any> {
 
 //Nasa image and videos library service
 getNasaLibrary(query: string): Observable<any> {
-  let params = new HttpParams();
-  params = params.set('q', query);
-  
-  return this.httpClient.get<NasaImageCollection>(this.library, { params })
+
+  return this.httpClient.get<NasaImageCollection>(`${this.library}/library/${query}`)
           
 }
 

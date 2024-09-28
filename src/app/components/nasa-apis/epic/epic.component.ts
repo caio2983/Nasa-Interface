@@ -22,7 +22,6 @@ import { Renderer2 } from '@angular/core';
 export class EpicComponent {
 
   date! : string | null;
-  date_barra! : string | null;
   images_data! : {
     data:Epic[]
 
@@ -53,9 +52,6 @@ export class EpicComponent {
   valueChanged(event : any) {
 
      this.date = this.datePipe.transform(event.value,'yyyy-MM-dd'); 
-     this.date_barra = this.datePipe.transform(event.value,'yyyy/MM/dd'); 
-
-    
      this.isLoading = true ;
 
      this.NasaService.getEpic(this.date).subscribe((response)=>{

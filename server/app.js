@@ -131,6 +131,23 @@ fastify.listen({ port: 3000 }, function (err, address) {
       }
     });
     
+    fastify.get('/library/:query', async (request, reply) => {
+      try {
+        const query = request.params.query;
+     
+     
+        const response = await axios.get(`https://images-api.nasa.gov/search?q=${query}`);
+        console.log("RESPONSE",response.data)
+        
+        // const responseImagesJson = await axios.get(`${response}.`)
+        
+        return response.data;
+      } catch (error) {
+        fastify.log.error(error);
+        reply.status(500).send({ error: 'Não foi possível recuperar os dados.' });
+      }
+    });
+    
   }
   
   module.exports = routes;
