@@ -24,12 +24,8 @@ constructor(private httpClient: HttpClient){}
 
 // Astronomy picture of the day service
 getAPOD(date: any): Observable<any> {
-
-  const params = new HttpParams().set('date', date);
-
-  return this.httpClient.get<Apod>(this.apod, { params });
+  return this.httpClient.get(`${this.apod}/apod/${date}`);
 }
-
 
 // Earth polychromatic images service
 getEpic(date: any,date_barra: any): Observable<any> {

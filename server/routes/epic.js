@@ -20,7 +20,7 @@ async function route_epic(fastify, options) {
         image_links.push(`https://api.nasa.gov/EPIC/archive/enhanced/${date_barra}/png/${response_item.image}.png?api_key=${apiKey_apod}`)
 
       }
-      // colocar a busca por datas
+
       console.log("IMAGE LINKS",image_links)
       
       return reply.send({
