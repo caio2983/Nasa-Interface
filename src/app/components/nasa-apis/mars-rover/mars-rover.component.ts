@@ -31,7 +31,7 @@ export class MarsRoverComponent {
    
   constructor(private NasaService: Nasa,private datePipe: DatePipe) {
     this.NasaService.getMarsRover(this.selected_rover,this.selected_sol).subscribe((response)=>{
-      console.log("RESPONSE TESTE",response)
+
       this.response_photos = response.photos;
       this.image_src = response.photos[0].img_src;
 

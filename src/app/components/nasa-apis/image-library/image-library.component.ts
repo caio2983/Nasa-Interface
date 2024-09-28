@@ -40,8 +40,7 @@ export class ImageLibraryComponent {
    
       switchMap((response) => {
         this.items = response.collection.items;
-        console.log("ITEMS", this.items);
-  
+    
         this.href = this.items[0].href;
         this.title = this.items[0].data[0].title;
         this.date = this.items[0].data[0].date_created;
@@ -49,8 +48,7 @@ export class ImageLibraryComponent {
         this.description = this.items[0].data[0].description;
         this.media_type = this.items[0].data[0].media_type;
         
-  
-        console.log("HREF TESTE", this.href);
+
   
   
         return this.NasaService.getLibraryitem(this.href);
@@ -80,7 +78,7 @@ export class ImageLibraryComponent {
    
       switchMap((response) => {
         this.items = response.collection.items;
-        console.log("ITEMS", this.items);
+   
   
         this.href = this.items[0].href;
         this.title = this.items[0].data[0].title;
@@ -90,7 +88,7 @@ export class ImageLibraryComponent {
         this.media_type = this.items[0].data[0].media_type;
         
   
-        console.log("HREF TESTE", this.href);
+
   
   
         return this.NasaService.getLibraryitem(this.href);
@@ -98,7 +96,6 @@ export class ImageLibraryComponent {
     ).subscribe(
       (response) => {
 
-        console.log("RESPONNSE GETLIBARY ITEM CONSTRUCTOR", response);
         this.imgSrc = response[0];
         this.isLoading = false;
       },
@@ -115,9 +112,9 @@ export class ImageLibraryComponent {
     console.log("i",this.items[i]) // Tirar os dados da imagem daqui
  
     this.NasaService.getLibraryitem(href).subscribe((response)=>{
-      console.log(response);
+ 
       this.imgSrc = response[0];
-      console.log("IMG SRC",this.imgSrc)  // sai em mp4 caso seja vídeo
+
       this.selectedIndex = i;
 
       this.title = this.items[i].data[0].title;
