@@ -31,8 +31,8 @@
     "fastify": "^3.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3",
-    "node": "20.x"
+    "zone.js": "~0.14.3"
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.1.2",
