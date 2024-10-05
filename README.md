@@ -1,3 +1,15 @@
+<h1 align="center">Nasa Interface 🚀🌌⭐</h1>
+
+<p align="center">Application where the user can see data available at some Nasa public APIs.</p>
+
+<p align="center">
+  <img  src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="NodeJS badge"/>
+  <img  src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" alt="Angular badge"/>
+</p>
+
+<h2>Technologies ⚙️</h2>
+
+
 # NasaInterface
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
