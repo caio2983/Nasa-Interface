@@ -46,6 +46,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Backend
 
-Go to the project's root
-cd server
-node app.js
+<p>Go to the project's root</p>
+<p>cd server</p>
+<p>node app.js</p>
+
