@@ -1,6 +1,6 @@
 <h1 align="center">Nasa Interface 🚀🌌⭐</h1>
 
-<p align="center">Application where the user can see data available at some Nasa public APIs.</p>
+<p align="center">Application where the user can see data available at some Nasa public APIs.Secondary feature : access to recent astronomy articles given by SpaceNewsAPI</p>
 
 <p align="center">
   <img  src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="NodeJS badge"/>
@@ -12,6 +12,8 @@
 <img src="https://private-user-images.githubusercontent.com/82726583/373908570-d7e05383-eb2a-4edd-8185-00a30290cf95.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjgxNjM3NDksIm5iZiI6MTcyODE2MzQ0OSwicGF0aCI6Ii84MjcyNjU4My8zNzM5MDg1NzAtZDdlMDUzODMtZWIyYS00ZWRkLTgxODUtMDBhMzAyOTBjZjk1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMDUlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDA1VDIxMjQwOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM5NGRiOGVjZjY1MmEwZGQ0MTZkYzM5YzNhNzc3YTgyMjk1ZGRkYWI4ZjJjOGQ3YWM2NjY0MzY4YTllNDIxN2EmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.MN7_yTrZ0sWNZDEfnjsQq9Hte7QV9ShBv-yDoIZanxw" />
 
 <h2>Technologies ⚙️</h2>
+<p>I used Angular to make the Frontend, with the help of Angular Material library</p>
+<p>Backend was built using NodeJS.The server communicated with Nasa APIs and the SpaceNews API </p>
 
 
 # NasaInterface
@@ -41,3 +43,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Backend
+
+Go to the project's root
+cd server
+node app.js
