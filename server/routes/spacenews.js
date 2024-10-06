@@ -8,10 +8,9 @@ async function route_spacenews(fastify, options) {
  
   fastify.get('/spacenews', async (request, reply) => {
     try {
-      const date = request.query.date; 
-      console.log(reply.body);
-      
-   
+    
+        
+     
       const response = await axios.get(`https://api.spaceflightnewsapi.net/v4/articles?news_site=NASA`);
       
       return response.data;

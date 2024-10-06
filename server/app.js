@@ -25,9 +25,9 @@ fastify.register(require('@fastify/cors'), {
 
 fastify.register(route_apod)
  fastify.register(route_epic)
-// fastify.register(route_library)
-// fastify.register(route_spacenews)
-// fastify.register(route_mars)
+ fastify.register(route_library)
+ fastify.register(route_spacenews)
+ fastify.register(route_mars)
 
 
 fastify.listen({ port: 3000 }, function (err, address) {

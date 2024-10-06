@@ -8,9 +8,8 @@ async function route_mars(fastify, options) {
  
   fastify.get('/marsrover/:rover_name/:sol', async (request, reply) => {
     try {
-      const sol = request.query.sol; 
-      const rover_name = request.query.rover_name; 
-      console.log(reply.body);
+      const sol = request.params.sol; 
+      const rover_name = request.params.rover_name; 
       
    
       const response = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover_name}/photos?page=1&sol=${sol}&api_key=${apiKey_apod}`);
