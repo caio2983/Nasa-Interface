@@ -23,7 +23,7 @@ fastify.register(require('@fastify/cors'), {
   });
 
 
-// // fastify.register(route_apod)
+fastify.register(route_apod)
  fastify.register(route_epic)
 // fastify.register(route_library)
 // fastify.register(route_spacenews)
