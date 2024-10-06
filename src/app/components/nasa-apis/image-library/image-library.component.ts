@@ -56,7 +56,6 @@ export class ImageLibraryComponent {
     ).subscribe(
       (response) => {
 
-        console.log("RESPONNSE GETLIBARY ITEM CONSTRUCTOR", response);
         this.imgSrc = response[0];
         this.isLoading = false;
       },
@@ -109,7 +108,7 @@ export class ImageLibraryComponent {
    clickIcon(href: string,i: number ) {
 
 
-    console.log("i",this.items[i]) // Tirar os dados da imagem daqui
+
  
     this.NasaService.getLibraryitem(href).subscribe((response)=>{
  

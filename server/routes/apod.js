@@ -8,7 +8,7 @@ async function route_apod(fastify, options) {
   fastify.get('/apod/:date', async (request, reply) => {
     try {
       const date = request.query.date; 
-      console.log(`Data recebida: ${date}`);
+    
       
       const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey_apod}&date=${date}`);
       

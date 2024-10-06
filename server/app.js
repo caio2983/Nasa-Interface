@@ -3,7 +3,6 @@ require('dotenv').config();
 const axios = require('axios');
 
 
-console.log("TESTE",process.env.API_KEY_APOD)
 
 const Fastify = require('fastify');
 const fastify = Fastify({ logger: true });
@@ -14,7 +13,7 @@ const route_spacenews  = require('./routes/spacenews')
 const route_mars = require('./routes/mars')
 
 const apiKey_apod = process.env.API_KEY_APOD
-console.log("TESTE 2",apiKey_apod)
+
 
 fastify.register(require('@fastify/cors'), {
     origin:['http://localhost:4200', 'https://nasa-interface-uiqo.vercel.app/'], 
@@ -24,11 +23,11 @@ fastify.register(require('@fastify/cors'), {
   });
 
 
-// fastify.register(route_apod)
-fastify.register(route_epic)
-fastify.register(route_library)
-fastify.register(route_spacenews)
-fastify.register(route_mars)
+// // fastify.register(route_apod)
+ fastify.register(route_epic)
+// fastify.register(route_library)
+// fastify.register(route_spacenews)
+// fastify.register(route_mars)
 
 
 fastify.listen({ port: 3000 }, function (err, address) {
@@ -44,8 +43,8 @@ fastify.listen({ port: 3000 }, function (err, address) {
   
     fastify.get('/apod/:date', async (request, reply) => {
       try {
-        const date = request.params.date;  // Certifique-se de usar 'params' aqui
-        console.log(`Data recebida: ${date}`);
+        const date = request.params.date;
+   
         
         // Chamada para a API da NASA
         const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY_APOD}&date=${date}`);
@@ -55,21 +54,21 @@ fastify.listen({ port: 3000 }, function (err, address) {
         
       } catch (error) {
         // Log completo do erro
-        fastify.log.error('Erro ao tentar obter dados da NASA:', {
-          message: error.message,            // Mensagem do erro
-          status: error.response?.status,    // Status HTTP (se disponível)
-          statusText: error.response?.statusText, // Texto do status (se disponível)
-          data: error.response?.data,        // Dados retornados no erro (se disponíveis)
-          config: error.config,              // Configuração da requisição Axios
+        fastify.log.error('Erro ao tentar obter dados da NASA:',  {
+          message: error.message,           
+          status: error.response?.status,    
+          statusText: error.response?.statusText,
+          data: error.response?.data,      
+          config: error.config,              
         });
     
-        // Resposta detalhada enviada ao cliente (opcional para desenvolvimento)
+       
         reply.status(500).send({
           error: 'Não foi possível recuperar os dados.',
-          message: error.message,            // Mensagem de erro
-          status: error.response?.status,    // Status HTTP (se disponível)
-          statusText: error.response?.statusText, // Texto do status (se disponível)
-          data: error.response?.data         // Dados retornados no erro (se disponíveis)
+          message: error.message,            
+          status: error.response?.status,   
+          statusText: error.response?.statusText,
+          data: error.response?.data        
         });
       }
     });
@@ -77,7 +76,7 @@ fastify.listen({ port: 3000 }, function (err, address) {
 
     fastify.get('/spacenews', async (request, reply) => {
       try {
-        console.log(reply.body);
+    
         
      
         const response = await axios.get(`https://api.spaceflightnewsapi.net/v4/articles?news_site=NASA`);
@@ -105,28 +104,26 @@ fastify.listen({ port: 3000 }, function (err, address) {
   
         }
   
-        console.log("IMAGE LINKS",image_links)
-        
         return reply.send({
           data: response.data,
           image_links: image_links
         });
       } catch (error) {
         fastify.log.error('Erro ao tentar obter dados da NASA:', {
-          message: error.message,            // Mensagem do erro
-          status: error.response?.status,    // Status HTTP (se disponível)
-          statusText: error.response?.statusText, // Texto do status (se disponível)
-          data: error.response?.data,        // Dados retornados no erro (se disponíveis)
-          config: error.config,              // Configuração da requisição Axios
+          message: error.message,           
+          status: error.response?.status,    
+          statusText: error.response?.statusText, 
+          data: error.response?.data,        
+          config: error.config,            
         });
     
-        // Resposta detalhada enviada ao cliente (opcional para desenvolvimento)
+        
         reply.status(500).send({
           error: 'Não foi possível recuperar os dados.',
-          message: error.message,            // Mensagem de erro
-          status: error.response?.status,    // Status HTTP (se disponível)
-          statusText: error.response?.statusText, // Texto do status (se disponível)
-          data: error.response?.data         // Dados retornados no erro (se disponíveis)
+          message: error.message,           
+          status: error.response?.status,  
+          statusText: error.response?.statusText,
+          data: error.response?.data         
         });
       }
     });
@@ -137,9 +134,7 @@ fastify.listen({ port: 3000 }, function (err, address) {
      
      
         const response = await axios.get(`https://images-api.nasa.gov/search?q=${query}`);
-        console.log("RESPONSE",response.data)
-        
-        // const responseImagesJson = await axios.get(`${response}.`)
+       
         
         return response.data;
       } catch (error) {
@@ -152,7 +147,6 @@ fastify.listen({ port: 3000 }, function (err, address) {
       try {
         const sol = request.params.sol; 
         const rover_name = request.params.rover_name; 
-        console.log(reply.body);
         
      
         const response = await axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover_name}/photos?page=1&sol=${sol}&api_key=${apiKey_apod}`);
