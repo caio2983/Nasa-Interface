@@ -21,6 +21,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
 ## Development server
+<p>Go to the project's root</p>
+<p>cd nasa-interface</p>
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
@@ -47,6 +49,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 # Backend
 
 <p>Go to the project's root</p>
+<p>cd nasa-interface</p>
 <p>cd server</p>
 <p>node app.js</p>
 
