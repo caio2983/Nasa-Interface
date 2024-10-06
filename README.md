@@ -13,7 +13,7 @@
 
 <h2>Technologies ⚙️</h2>
 <p>I used Angular to make the Frontend, with the help of Angular Material library</p>
-<p>Backend was built using NodeJS.The server communicated with Nasa APIs and the SpaceNews API </p>
+<p>Backend was built using NodeJS.The server communicates with Nasa APIs and the SpaceNews API </p>
 
 
 # NasaInterface
